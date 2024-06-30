@@ -6,7 +6,7 @@
     <style>
       body {
         margin: 0;
-        background-color: blue;
+        background-color: #247869;
         padding: 0;
         overflow: hidden;
       }
@@ -18,12 +18,42 @@
     </style>
   </head>
   <body>
-    <h1>My HTML5 Game</h1>
-    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <h1>KrikyFun</h1>
+    <div id="hero" style="text-align: center">
+      <div
+        id="play"
+        style="
+          background-color: red;
+          width: 149px;
+          height: 149px;
+          position: absolute;
+          top: 62vw;
+          left: 9vw;
+        "
+      ></div>
+      <img
+        src="images/5958997.jpg"
+        alt="Hero"
+        style="width: 100%; height: auto"
+      />
+    </div>
+    <div id="setup" style="display: none">
+      <img src="images/4390702_orig.jpg" alt="Setup" />
+    </div>
 
     <script>
-      // Add your game logic here
-      // You can use JavaScript or a game framework like Phaser.js or Pixi.js
+      window.onload = function () {
+        const button = document.getElementById("play");
+        const setup = document.getElementById("setup");
+        button.addEventListener("click", function () {
+          document.getElementById("hero").style.display = "none";
+          document.getElementById("setup").style.display = "block";
+        });
+        setup.addEventListener("click", function () {
+          document.getElementById("hero").style.display = "block";
+          document.getElementById("setup").style.display = "none";
+        });
+      };
     </script>
   </body>
 </html>
